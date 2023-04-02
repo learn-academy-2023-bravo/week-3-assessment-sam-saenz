@@ -64,12 +64,19 @@
         }
         // No need to change anything ABOVE this line ^
 
+        // The three bugs that I found were:
+        // 1. The button that draws a card originally had no funtion in the onClick trigger, so nothing would happen when you clicked it.
+        // 2. The return was trying to return several html tags in one statement, so I had to wrap the entire thing in fragments to allow the return to work.
+        // 3. The onClick in the shuffle button had a capitalization error, so the function was not being called properly.
+
+
         return (
+          <>
           <h1>Draw a Card</h1>
-          <button onClick={}>
+          <button onClick={drawCard}>
             Click to Draw a Card
           </button>
-          <button onclick={shuffle}>
+          <button onClick={shuffle}>
             Return Cards and Shuffle Deck
           </button>
           <div style={handStyles}>
@@ -81,6 +88,7 @@
               )
             })}
           </div>
+          </>
         )
       }
 
